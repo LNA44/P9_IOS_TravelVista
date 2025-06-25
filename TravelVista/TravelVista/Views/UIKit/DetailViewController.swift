@@ -49,19 +49,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
 			
 			self.setUpData(country: country)
 		}
-		
-
     }
     
     private func setUpData(country: Country) {
         self.title = country.name
         
-        self.countryNameLabel.text = country.name
-        self.capitalNameLabel.text = country.capital
         self.imageView.image = UIImage(named: country.pictureName )
         self.descriptionTextView.text = country.description
         
-        self.setRateStars(rate: country.rate)
         self.setMapLocation(lat: self.country?.coordinates.latitude ?? 28.394857,
                             long: self.country?.coordinates.longitude ?? 84.124008)
     }
@@ -81,21 +76,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         let region = MKCoordinateRegion(center: initialLocation, span: span)
         self.mapView.setRegion(region, animated: true)
         self.mapView.delegate = self
-    }
-    
-    private func setRateStars(rate: Int) {
-        var lastRightAnchor = self.rateView.rightAnchor
-        for _ in 0..<rate {
-            let starView = UIImageView(image: UIImage(systemName: "star.fill"))
-            self.rateView.addSubview(starView)
-            
-            starView.translatesAutoresizingMaskIntoConstraints = false
-            starView.widthAnchor.constraint(equalToConstant: 19).isActive = true
-            starView.heightAnchor.constraint(equalToConstant: 19).isActive = true
-            starView.centerYAnchor.constraint(equalTo: self.rateView.centerYAnchor).isActive = true
-            starView.rightAnchor.constraint(equalTo: lastRightAnchor).isActive = true
-            lastRightAnchor = starView.leftAnchor
-        }
     }
     
     // Cette fonction est appelée lorsque la carte est cliquée
