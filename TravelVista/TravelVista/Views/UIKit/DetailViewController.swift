@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import SwiftUI
 
 class DetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var countryNameLabel: UILabel!
@@ -27,8 +28,29 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         self.setCustomDesign()
 
         if let country = self.country {
-            self.setUpData(country: country)
-        }
+			let detailTitleView = DetailTitleView(country: country)
+			// Ajoute la vue SwiftUI dans une UIHostingController
+			let hostingController = UIHostingController(rootView: detailTitleView)
+			
+			// Ajoute en enfant, et ajoute la vue dans container UIKit (ex: titleView)
+			addChild(hostingController)
+			hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+			self.titleView.addSubview(hostingController.view)
+			
+			// Contraintes Auto Layout pour prendre toute la place
+			NSLayoutConstraint.activate([
+				hostingController.view.topAnchor.constraint(equalTo: self.titleView.topAnchor),
+				hostingController.view.bottomAnchor.constraint(equalTo: self.titleView.bottomAnchor),
+				hostingController.view.leadingAnchor.constraint(equalTo: self.titleView.leadingAnchor),
+				hostingController.view.trailingAnchor.constraint(equalTo: self.titleView.trailingAnchor),
+			])
+			//informe hostingController (enfant) qu'il a bien été ajouté à son parent (self)
+			hostingController.didMove(toParent: self)
+			
+			self.setUpData(country: country)
+		}
+		
+
     }
     
     private func setUpData(country: Country) {
