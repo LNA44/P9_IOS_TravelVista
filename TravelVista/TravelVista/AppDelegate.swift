@@ -13,10 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		let service = Service()
-		// Charge les régions depuis Source.json
-		let regions: [Region] = service.load("Source.json")
-		let listView = UIHostingController(rootView: ListView(regions: regions))
+		let listView = UIHostingController(rootView: ListView())
 		window?.rootViewController = listView
         return true
     }
