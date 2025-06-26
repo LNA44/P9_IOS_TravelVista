@@ -8,35 +8,39 @@
 import SwiftUI
 
 struct CustomCellSwiftUI: View {
+	let country: Country
     var body: some View {
 		HStack {
-			Image(systemName: "person.circle")
+			Image(country.pictureName)
 				.resizable()
 				.scaledToFill()
 				.frame(width: 52, height: 52)
 				.clipShape(Circle())
 			VStack(alignment: .leading) {
-				Text("John Doe")
+				Text(country.name)
 					.foregroundColor(Color("CustomBlue"))
-					.font(.system(size: 24))
-				Text("toto")
+					.font(.system(size: 20))
+				Text(country.capital)
 					.foregroundColor(.black)
-					.font(.system(size: 22))
+					.font(.system(size: 16))
 			}
 			Spacer()
 			HStack (spacing: 10){
-				Text("4")
-					.font(.system(size: 22))
+				Text("\(country.rate)")
+					.font(.system(size: 16))
 				Image(systemName: "star.fill")
 					.resizable()
-					.frame(width: 32, height: 32)
+					.frame(width: 30, height: 30)
 					.foregroundColor(Color("CustomSand"))
 			}
 		}
-		.padding(25)
+		.padding(.leading, 25)
+		.padding(.trailing, 25)
+		.padding(.bottom, 5)
+		.padding(.top, 5)
     }
 }
 
 #Preview {
-    CustomCellSwiftUI()
+	CustomCellSwiftUI(country: Country(name: "Norvège", capital: "Oslo", description: "La Norvège, officiellement le Royaume de Norvège, est un pays nordique d'Europe du Nord dont le territoire principal comprend la partie ouest et la plus septentrionale de la péninsule scandinave.", rate: 4, pictureName: "norvege", coordinates: Coordinates(latitude: 59.9139, longitude: 10.7522)))
 }
