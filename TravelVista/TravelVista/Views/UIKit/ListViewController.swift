@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+/*class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableview: UITableView!
     
     var regions: [Region] = Service().load("Source.json")
@@ -56,3 +56,4 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 }
 
+*/
