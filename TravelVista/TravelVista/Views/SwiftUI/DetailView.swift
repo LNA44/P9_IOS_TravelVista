@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct DetailView: UIViewControllerRepresentable { //vue swift qui crée une instance de DetailViewController (UIKit)
+struct DetailView: UIViewControllerRepresentable { //simule une vue de type SwiftUI
 	let country: Country
 	
-	func makeUIViewController(context: Context)  ->  DetailViewController {
-		guard let detailViewController = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { //crée nvelle instance de DetailViewController via son identifiant dans le storyboard puis on caste en DetailViewController pour utiliser sa propriété country
+	func makeUIViewController(context: Context)  ->  DetailViewController {//récupère DetailViewController
+		guard let detailViewController = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { //crée nvelle instance de DetailViewController via son identifiant dans le storyboard puis on caste en DetailViewController (sinon son type serait UIViewController, c'est général) pour utiliser sa propriété country
 			fatalError("Impossible d'instancier DetailViewController depuis le storyboard")
 		}
 		detailViewController.country = country
@@ -23,4 +23,4 @@ struct DetailView: UIViewControllerRepresentable { //vue swift qui crée une ins
 		
 	}
 }
-	
+

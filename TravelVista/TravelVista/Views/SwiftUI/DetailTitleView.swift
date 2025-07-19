@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailTitleView: View {
 	let country: Country
 	
-    var body: some View {
+	var body: some View {
 		HStack {
 			VStack (alignment: .leading){
 				Text(country.name)
@@ -32,7 +32,7 @@ struct DetailTitleView: View {
 			}
 		}
 		.padding(20)
-    }
+	}
 }
 
 #Preview {

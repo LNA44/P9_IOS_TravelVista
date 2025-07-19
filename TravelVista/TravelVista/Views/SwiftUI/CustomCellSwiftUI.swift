@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomCellSwiftUI: View {
 	let country: Country
-    var body: some View {
+	var body: some View {
 		HStack {
 			Image(country.pictureName)
 				.resizable()
@@ -38,7 +38,7 @@ struct CustomCellSwiftUI: View {
 		.padding(.trailing, 25)
 		.padding(.bottom, 5)
 		.padding(.top, 5)
-    }
+	}
 }
 
 #Preview {
