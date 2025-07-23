@@ -31,6 +31,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F3B880672E0C388900C4D629 /* UIKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UIKit; sourceTree = "<group>"; };
 		F3B880682E0C389400C4D629 /* SwiftUI */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SwiftUI; sourceTree = "<group>"; };
+		F3F811382E0D91BD00342371 /* ViewModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModel; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +83,7 @@
 		42B90C112B2A055B00779364 /* TravelVista */ = {
 			isa = PBXGroup;
 			children = (
+				F3F811382E0D91BD00342371 /* ViewModel */,
 				424C31C92B30ABE600279238 /* Model */,
 				424C31BE2B30956400279238 /* Views */,
 				42B90C122B2A055B00779364 /* AppDelegate.swift */,
@@ -111,6 +113,7 @@
 			fileSystemSynchronizedGroups = (
 				F3B880672E0C388900C4D629 /* UIKit */,
 				F3B880682E0C389400C4D629 /* SwiftUI */,
+				F3F811382E0D91BD00342371 /* ViewModel */,
 			);
 			name = TravelVista;
 			productName = TravelVista;

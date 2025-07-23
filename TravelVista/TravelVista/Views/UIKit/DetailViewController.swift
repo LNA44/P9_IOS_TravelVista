@@ -29,22 +29,20 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
 		
 		if let country = self.country {
 			let detailTitleView = DetailTitleView(country: country)
-			// Ajoute la vue SwiftUI dans une UIHostingController
+			
 			let hostingController = UIHostingController(rootView: detailTitleView)
 			
-			// Ajoute en enfant, et ajoute la vue dans container UIKit (ex: titleView)
-			addChild(hostingController) //déclare l'enfant au parent
-			self.titleView.addSubview(hostingController.view) //ajoute la vue enfant dans hiérarchie des vues
-			hostingController.view.translatesAutoresizingMaskIntoConstraints = false //Désactive la conversion automatique des AutoresizingMask en contraintes Auto Layout. Par défaut, UIKit essaie d’ajuster la taille et la position d’une vue en utilisant les anciennes AutoresizingMask.
+			addChild(hostingController)
+			self.titleView.addSubview(hostingController.view)
+			hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 			
-			// Contraintes Auto Layout pour prendre toute la place
 			NSLayoutConstraint.activate([
 				hostingController.view.topAnchor.constraint(equalTo: self.titleView.topAnchor),
 				hostingController.view.bottomAnchor.constraint(equalTo: self.titleView.bottomAnchor),
 				hostingController.view.leadingAnchor.constraint(equalTo: self.titleView.leadingAnchor),
 				hostingController.view.trailingAnchor.constraint(equalTo: self.titleView.trailingAnchor),
 			])
-			hostingController.didMove(toParent: self) //informe hostingController (enfant) qu'il a bien été ajouté à son parent (self)
+			hostingController.didMove(toParent: self)
 			
 			self.setUpData(country: country)
 		}
